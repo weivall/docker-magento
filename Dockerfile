@@ -24,9 +24,8 @@ RUN sed -i 's/AllowOverride Limit/AllowOverride All/g' \
 RUN rm -fr /var/www/html
 
 # Get the Magento files
-RUN wget http://www.magentocommerce.com/downloads/assets/1.9.1.0/magento-1.9.1.0.tar.gz
-RUN mv magento-1.9.1.0.tar.gz /tmp
-RUN cd /tmp && tar -zxvf magento-1.9.1.0.tar.gz
+COPY ./magento-1.7.0.2.tar.gz /tmp/magento-1.7.0.2.tar.gz
+RUN cd /tmp && tar -zxvf  magento-1.7.0.2.tar.gz
 RUN mv /tmp/magento /app
 
 # Add scripts and make them executable.
